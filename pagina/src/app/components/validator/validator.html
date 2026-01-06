@@ -1,0 +1,70 @@
+<div class="validator-container">
+  <!-- Imagen de fondo cuando está esperando input -->
+  <div class="intro-image-container" *ngIf="!showResult && !notFound">
+    <img src="images/introducirMensaje.png" alt="Introduce tu mensaje" class="intro-image" />
+  </div>
+
+  <!-- Imagen de fondo para resultado (correcto/incorrecto) -->
+  <div class="result-bg-container" *ngIf="showResult && validationResult">
+    <img [src]="getResultImage()" [alt]="validationResult.resultMessage" class="result-bg-image" />
+  </div>
+
+  <!-- Formulario de entrada -->
+  <div class="form-container" [class.with-result]="showResult">
+    <div class="input-group">
+      <textarea 
+        id="userInput" 
+        [(ngModel)]="userInput"
+        (keyup.enter)="validateInput()"
+        placeholder="Escribe aquí la frase..."
+        class="text-input"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="button-group">
+      <button 
+        (click)="validateInput()" 
+        class="btn btn-primary"
+        [disabled]="userInput.trim() === ''"
+      >
+        Verificar
+      </button>
+      <button 
+        (click)="clearForm()" 
+        class="btn btn-secondary"
+      >
+        Limpiar
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensaje cuando no se encuentra la frase -->
+  <div class="not-found-message" *ngIf="notFound">
+    <p>⚠️ Frase no encontrada. Verifica que hayas escrito correctamente.</p>
+  </div>
+
+  <!-- Resultado de la validación (solo información, imagen ya está de fondo) -->
+  <div class="result-container" *ngIf="showResult && validationResult">
+    <div class="result-image-wrapper">
+      <!-- Información adicional sobre el resultado -->
+      <div class="result-info">
+        <div class="group-counters">
+          <span>ALFA: {{ groupCounters.ALFA }}/2</span>
+          <span class="sep">|</span>
+          <span>BETA: {{ groupCounters.BETA }}/2</span>
+        </div>
+        <h3 class="result-message" [class.correct]="validationResult.isCorrect" [class.incorrect]="!validationResult.isCorrect">
+          {{ validationResult.resultMessage }}
+        </h3>
+        <p class="tree-info">Árbol: {{ validationResult.treeName }} (Grupo {{ validationResult.groupName }})</p>
+        <p class="explanation" *ngIf="validationResult.explanation">
+          💡 {{ validationResult.explanation }}
+        </p>
+        <p class="phase-message" *ngIf="validationResult && phaseCompleted[validationResult.groupName]">
+          {{ phaseMessage }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
