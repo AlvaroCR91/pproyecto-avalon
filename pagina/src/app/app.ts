@@ -4,6 +4,7 @@ import { Validator } from './components/validator/validator';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, Validator],
   templateUrl: './app.html',
   styleUrl: './app.css'

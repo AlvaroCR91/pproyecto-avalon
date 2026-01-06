@@ -5,6 +5,7 @@ import { Validation, Answer } from '../../services/validation';
 
 @Component({
   selector: 'app-validator',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './validator.html',
   styleUrl: './validator.css',

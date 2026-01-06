@@ -6,7 +6,7 @@ export interface Answer {
   caseSensitive?: boolean;
   alternativeAnswers?: string[];
   isCorrect: boolean;  // true si es correcta, false si es trampa
-  groupName: string;   // 'ALFA' o 'BETA'
+  groupName: 'ALFA' | 'BETA';   // grupo al que pertenece
   treeName: string;    // 'A1', 'A2', etc.
   explanation?: string; // Explicación del error (solo para trampas)
   resultMessage: string; // 'PATCH 1/2 FOUND', 'PATCH 2/2 FOUND' o 'FATAL ERROR'
