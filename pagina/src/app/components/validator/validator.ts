@@ -40,6 +40,7 @@ export class Validator {
       this.validationResult = result;
       this.showResult = true;
       this.notFound = false;
+      console.log('showResult:', this.showResult, 'isCorrect:', result.isCorrect);
       // Actualizar contadores si la respuesta es correcta
       if (result.isCorrect) {
         const group = (result.groupName || '') as 'ALFA' | 'BETA';
@@ -83,12 +84,16 @@ export class Validator {
    * Obtiene la ruta de la imagen según el resultado
    */
   getResultImage(): string {
-    if (!this.validationResult) return '';
-    
-    if (this.validationResult.isCorrect) {
-      return 'images/mensajeCorrecto.png';
-    } else {
+    if (this.notFound) {
       return 'images/mensajeDeError.png';
     }
+
+    if (!this.validationResult) {
+      return '';
+    }
+
+    return this.validationResult.isCorrect
+      ? 'images/mensajeCorrecto.png'
+      : 'images/mensajeDeError.png';
   }
 }

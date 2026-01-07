@@ -52,16 +52,16 @@ h1 {
 
 .form-container {
   width: 100%;
-  max-width: 600px;
-  background: transparent;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: none;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   position: fixed;
-  top: 58%;
+  bottom: 2rem;
   left: 50%;
-  transform: translate(-50%, -50%);
-  border: none;
+  transform: translateX(-50%);
+  border: 3px solid #2c2c2c;
   z-index: 10;
   color: #fff;
 }
@@ -71,7 +71,7 @@ h1 {
 }
 
 .input-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 label {
@@ -83,16 +83,16 @@ label {
 
 .text-input {
   width: 100%;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 12px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
   transition: all 0.3s;
   box-sizing: border-box;
   font-family: inherit;
   resize: vertical;
-  min-height: 100px;
-  background: transparent;
+  min-height: 70px;
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   caret-color: #fff;
 }
@@ -114,10 +114,10 @@ label {
 }
 
 .btn {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 600;
@@ -174,13 +174,21 @@ label {
 }
 
 .result-info {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
   text-align: center;
-  width: 100%;
-  backdrop-filter: blur(10px);
+  max-width: 480px;
+  margin: 0 auto;
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  z-index: 100;
+  color: #fff;
 }
 
 .group-counters {
@@ -234,18 +242,35 @@ label {
   text-align: left;
 }
 
+.penalty-message {
+  font-size: 1rem;
+  color: #dc3545;
+  margin: 0.75rem 0 0 0;
+  padding: 0.75rem;
+  background: rgba(220, 53, 69, 0.15);
+  border-left: 4px solid #dc3545;
+  border-radius: 5px;
+  text-align: left;
+  font-weight: 600;
+}
+
 .not-found-message {
-  background: rgba(255, 193, 7, 0.9);
+  background: rgba(255, 193, 7, 0.95);
   color: #856404;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 10px;
-  margin-top: 1rem;
+  border: 2px solid #d39e00;
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -52%);
   text-align: center;
   font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   animation: shake 0.5s;
   z-index: 100;
-  position: relative;
+  max-width: 400px;
+  width: 90%;
 }
 
 @keyframes fadeIn {
