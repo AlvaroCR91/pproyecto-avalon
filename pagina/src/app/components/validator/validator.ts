@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Validation, Answer } from '../../services/validation';
 
 @Component({
@@ -15,17 +16,24 @@ export class Validator {
   validationResult: Answer | null = null;
   showResult: boolean = false;
   notFound: boolean = false;
-  // Contadores de aciertos por grupo
+  // Hit counters by group
   groupCounters: { ALFA: number; BETA: number } = { ALFA: 0, BETA: 0 };
-  // Fase completada por grupo (cuando alcanza 2 aciertos)
+  // Phase completed by group (when reaching 2 hits)
   phaseCompleted: { ALFA: boolean; BETA: boolean } = { ALFA: false, BETA: false };
-  // Mensaje de fase
+  // Phase message
   phaseMessage: string | null = null;
 
-  constructor(private validationService: Validation) {}
+  constructor(private validationService: Validation, private router: Router) {}
 
   /**
-   * Valida la entrada del usuario
+   * Navigate back to home
+   */
+  goBack(): void {
+    this.router.navigate(['/']);
+  }
+
+  /**
+   * Validates user input
    */
   validateInput(): void {
     if (this.userInput.trim() === '') {
@@ -41,7 +49,7 @@ export class Validator {
       this.showResult = true;
       this.notFound = false;
       console.log('showResult:', this.showResult, 'isCorrect:', result.isCorrect);
-      // Actualizar contadores si la respuesta es correcta
+      // Update counters if answer is correct
       if (result.isCorrect) {
         const group = (result.groupName || '') as 'ALFA' | 'BETA';
         if (group === 'ALFA' || group === 'BETA') {
@@ -49,13 +57,13 @@ export class Validator {
             this.groupCounters[group]++;
             if (this.groupCounters[group] >= 2) {
               this.phaseCompleted[group] = true;
-              this.phaseMessage = '¡Habéis conseguido pasar esta fase!';
+              this.phaseMessage = '¡You have successfully passed this phase!';
             } else {
               this.phaseMessage = null;
             }
           } else {
-            // Ya estaba completada; mantener el mensaje
-            this.phaseMessage = '¡Habéis conseguido pasar esta fase!';
+            // Already completed; keep the message
+            this.phaseMessage = '¡You have successfully passed this phase!';
           }
         }
       } else {
@@ -70,18 +78,18 @@ export class Validator {
   }
 
   /**
-   * Limpia el formulario
+   * Clears the form
    */
   clearForm(): void {
     this.userInput = '';
     this.validationResult = null;
     this.showResult = false;
     this.notFound = false;
-    // No reiniciamos contadores al limpiar entrada
+    // Do not reset counters when clearing input
   }
 
   /**
-   * Obtiene la ruta de la imagen según el resultado
+   * Gets the image route according to the result
    */
   getResultImage(): string {
     if (this.notFound) {

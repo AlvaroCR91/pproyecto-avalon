@@ -1,0 +1,17 @@
+<div class="code-entry-container">
+  <button class="back-button" (click)="goBack()">← Back</button>
+  <div class="entry-box">
+    <h2>Enter Code</h2>
+    <input
+      type="password"
+      [(ngModel)]="code"
+      (keypress)="handleKeyPress($event)"
+      placeholder="Enter Code"
+      class="code-input"
+    />
+    <button class="submit-button" (click)="submitCode()">Submit</button>
+    <div *ngIf="error()" class="error-message">
+      {{ error() }}
+    </div>
+  </div>
+</div>

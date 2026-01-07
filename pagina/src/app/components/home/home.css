@@ -1,0 +1,75 @@
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/FondoPrincipal.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  background: rgba(20, 20, 30, 0.85);
+  border: 3px solid #8b7355;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+}
+
+h1 {
+  color: #d4c5b8;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-button {
+  background: linear-gradient(135deg, #5a4a3a, #8b7355);
+  color: #d4c5b8;
+  border: 2px solid #a89080;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-button:hover {
+  background: linear-gradient(135deg, #8b7355, #a89080);
+  box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+  transform: translateY(-2px);
+}
+
+.menu-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .menu-button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}

@@ -1,22 +1,23 @@
 <div class="validator-container">
-  <!-- Imagen de fondo cuando está esperando input -->
+  <button class="back-button" (click)="goBack()">← Back</button>
+  <!-- Background image when waiting for input -->
   <div class="intro-image-container" *ngIf="!showResult && !notFound">
-    <img src="images/introducirMensaje.png" alt="Introduce tu mensaje" class="intro-image" />
+    <img src="images/introducirMensaje.png" alt="Enter your message" class="intro-image" />
   </div>
 
-  <!-- Imagen de fondo para resultado (correcto/incorrecto y no encontrado) -->
+  <!-- Background image for result (correct/incorrect and not found) -->
   <div class="result-bg-container" *ngIf="showResult || notFound">
-    <img [src]="getResultImage()" alt="Resultado" class="result-bg-image" />
+    <img [src]="getResultImage()" alt="Result" class="result-bg-image" />
   </div>
 
-  <!-- Formulario de entrada -->
+  <!-- Input form -->
   <div class="form-container" [class.with-result]="showResult">
     <div class="input-group">
       <textarea 
         id="userInput" 
         [(ngModel)]="userInput"
         (keyup.enter)="validateInput()"
-        placeholder="Escribe aquí la frase..."
+        placeholder="Write the phrase here..."
         class="text-input"
         rows="3"
       ></textarea>
@@ -28,27 +29,27 @@
         class="btn btn-primary"
         [disabled]="userInput.trim() === ''"
       >
-        Verificar
+        Verify
       </button>
       <button 
         (click)="clearForm()" 
         class="btn btn-secondary"
       >
-        Limpiar
+        Clear
       </button>
     </div>
   </div>
 
-  <!-- Mensaje cuando no se encuentra la frase -->
+  <!-- Message when phrase is not found -->
   <div class="not-found-message" *ngIf="notFound">
-    <p>⚠️ Frase no encontrada. Verifica que hayas escrito correctamente.</p>
-    <p style="margin-top: 0.5rem; font-weight: bold; color: #721c24;">⏱️ Penalización: -1 minuto de tiempo máximo</p>
+    <p>⚠️ Phrase not found. Please verify that you wrote it correctly.</p>
+    <p style="margin-top: 0.5rem; font-weight: bold; color: #721c24;">⏱️ Penalty: -1 minute of maximum time</p>
   </div>
 
-  <!-- Resultado de la validación (solo información, imagen ya está de fondo) -->
+  <!-- Validation result (only information, image is already in background) -->
   <div class="result-container" *ngIf="showResult && validationResult">
     <div class="result-image-wrapper">
-      <!-- Información adicional sobre el resultado -->
+      <!-- Additional information about the result -->
       <div class="result-info">
         <div class="group-counters">
           <span>ALFA: {{ groupCounters.ALFA }}/2</span>
@@ -58,12 +59,12 @@
         <h3 class="result-message" [class.correct]="validationResult.isCorrect" [class.incorrect]="!validationResult.isCorrect">
           {{ validationResult.resultMessage }}
         </h3>
-        <p class="tree-info">Árbol: {{ validationResult.treeName }} (Grupo {{ validationResult.groupName }})</p>
+        <p class="tree-info">Tree: {{ validationResult.treeName }} (Group {{ validationResult.groupName }})</p>
         <p class="explanation" *ngIf="validationResult.explanation">
           💡 {{ validationResult.explanation }}
         </p>
         <p class="penalty-message" *ngIf="!validationResult.isCorrect">
-          ⏱️ Penalización: -1 minuto de tiempo máximo
+          ⏱️ Penalty: -1 minute of maximum time
         </p>
         <p class="phase-message" *ngIf="validationResult && phaseCompleted[validationResult.groupName]">
           {{ phaseMessage }}

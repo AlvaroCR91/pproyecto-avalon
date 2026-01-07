@@ -1,0 +1,91 @@
+.team-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/FondoEquipoA.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #7a6a5a;
+  color: #e8dcd0;
+  border: 2px solid #9a8a7a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background: #9a8a7a;
+  box-shadow: 0 4px 15px rgba(122, 106, 90, 0.4);
+}
+
+.content-box {
+  background: rgba(40, 35, 30, 0.9);
+  border: 4px solid #a89080;
+  border-radius: 20px;
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  max-width: 500px;
+  width: 90%;
+}
+
+h1 {
+  color: #d4c5b8;
+  font-size: 2.8em;
+  margin-bottom: 40px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.play-button {
+  width: 100%;
+  padding: 18px 30px;
+  background: linear-gradient(135deg, #6a5a4a, #9a8a7a);
+  color: #e8dcd0;
+  border: 3px solid #b5a090;
+  border-radius: 12px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.play-button:hover {
+  background: linear-gradient(135deg, #9a8a7a, #b5a090);
+  box-shadow: 0 8px 25px rgba(122, 106, 90, 0.5);
+  transform: translateY(-3px);
+}
+
+.play-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .content-box {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .play-button {
+    padding: 15px 20px;
+    font-size: 1.1em;
+  }
+}
