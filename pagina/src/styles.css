@@ -9,6 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Estos estilos permiten añadir imágenes de fondo personalizadas más adelante */

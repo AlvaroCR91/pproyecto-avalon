@@ -1,6 +1,7 @@
 .team-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
   background-image: url('/images/FondoEquipoA.png');
   background-size: cover;
   background-position: center;
@@ -14,8 +15,8 @@
 
 .back-button {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: clamp(14px, 2vh, 20px);
+  left: clamp(14px, 2vw, 20px);
   background: #7a6a5a;
   color: #e8dcd0;
   border: 2px solid #9a8a7a;
@@ -36,28 +37,27 @@
   background: rgba(40, 35, 30, 0.9);
   border: 4px solid #a89080;
   border-radius: 20px;
-  padding: 60px;
+  padding: clamp(2.5rem, 4vw, 3.75rem);
   text-align: center;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-  max-width: 500px;
-  width: 90%;
+  width: min(520px, 100%);
 }
 
 h1 {
   color: #d4c5b8;
-  font-size: 2.8em;
-  margin-bottom: 40px;
+  font-size: clamp(2rem, 4vw, 2.8em);
+  margin-bottom: 30px;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
 .play-button {
   width: 100%;
-  padding: 18px 30px;
+  padding: clamp(0.95rem, 2vw, 1.2rem) clamp(1.25rem, 2vw, 1.9rem);
   background: linear-gradient(135deg, #6a5a4a, #9a8a7a);
   color: #e8dcd0;
   border: 3px solid #b5a090;
   border-radius: 12px;
-  font-size: 1.3em;
+  font-size: clamp(1.05rem, 2vw, 1.3em);
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: bold;
@@ -87,5 +87,18 @@ h1 {
   .play-button {
     padding: 15px 20px;
     font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-box {
+    padding: 1.75rem;
+  }
+
+  .back-button {
+    top: 12px;
+    left: 12px;
+    padding: 8px 14px;
+    font-size: 0.95em;
   }
 }
