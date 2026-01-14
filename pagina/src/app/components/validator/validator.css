@@ -86,6 +86,7 @@ h1 {
   z-index: 10;
   color: #d8e8d0;
   backdrop-filter: blur(6px);
+  margin-top: clamp(8rem, 15vh, 12rem);
 }
 
 .form-container.with-result {
